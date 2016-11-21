@@ -1,0 +1,1 @@
+json.array! @user_infoms, partial: 'user_infoms/user_infom', as: :user_infom
