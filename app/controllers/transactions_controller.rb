@@ -13,17 +13,25 @@ class TransactionsController < ApplicationController
   end
 
   # GET /transactions/new
+  
+  
   def new
     @transaction = Transaction.new
+    
+     session[:atm_no] = params[:atm_no] 
+  end
+  
+# GET /transactions/1/edit
+  def edit  
+  
+   session[:atm_no] = params[:atm_no] 
+   
+   
   end
 
-  # GET /transactions/1/edit
-  def edit
-  end
-
-  # POST /transactions
+ # POST /transactions
   # POST /transactions.json
-  def create
+ def create
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|
@@ -35,7 +43,7 @@ class TransactionsController < ApplicationController
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
-  end
+ end
 
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
@@ -54,6 +62,9 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1
   # DELETE /transactions/1.json
   def destroy
+    
+    
+    
     @transaction.destroy
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }

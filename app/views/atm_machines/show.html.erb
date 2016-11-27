@@ -24,6 +24,8 @@
   <strong>Street:</strong>
   <%= @atm_machine.street %>
 </p>
+<%= link_to 'add new account', new_account_path(my_atm: @atm_machine.id) %>
+<%= link_to 'deposit', new_deposit_account_path(User.current_user.account) %>
 
 <%= link_to 'Edit', edit_atm_machine_path(@atm_machine) %> |
 <%= link_to 'Back', atm_machines_path %>

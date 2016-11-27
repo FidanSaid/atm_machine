@@ -1,0 +1,10 @@
+<hr>
+<strong>Please select transaction type </strong>    
+<br><hr><p>Your current Balance IS :  
+  <strong><%= current_user.account.balance%> $</strong>
+</p><hr><br>
+
+<%=link_to 'Deposit Transaction',  new_deposit_account_path %>
+<%=link_to 'Withdrawal Transaction', new_withdrawal_account_path %>
+</br>
+<%=link_to'Back',atm_mach_path(session[:atm_no]) %>

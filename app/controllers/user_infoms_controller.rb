@@ -15,10 +15,13 @@ class UserInfomsController < ApplicationController
   # GET /user_infoms/new
   def new
     @user_infom = UserInfom.new
+     session[:atm_no] = params[:atm_no] 
   end
 
   # GET /user_infoms/1/edit
   def edit
+    
+     session[:atm_no] = params[:atm_no] 
   end
 
   # POST /user_infoms
@@ -26,6 +29,7 @@ class UserInfomsController < ApplicationController
   def create
     @user_infom = UserInfom.new(user_infom_params)
 
+@atm_no = params[:atm_no] 
     respond_to do |format|
       if @user_infom.save
         format.html { redirect_to @user_infom, notice: 'User infom was successfully created.' }
@@ -40,6 +44,7 @@ class UserInfomsController < ApplicationController
   # PATCH/PUT /user_infoms/1
   # PATCH/PUT /user_infoms/1.json
   def update
+     @atm_no = params[:atm_no] 
     respond_to do |format|
       if @user_infom.update(user_infom_params)
         format.html { redirect_to @user_infom, notice: 'User infom was successfully updated.' }

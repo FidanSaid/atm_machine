@@ -10,6 +10,8 @@ class AtmMachinesController < ApplicationController
   # GET /atm_machines/1
   # GET /atm_machines/1.json
   def show
+    @atm_machine = AtmMachine.find(params[:id])
+    
   end
 
   # GET /atm_machines/new
@@ -27,7 +29,7 @@ class AtmMachinesController < ApplicationController
     @atm_machine = AtmMachine.new(atm_machine_params)
 
     respond_to do |format|
-      if @atm_machine.save
+      if @atm_machine
         format.html { redirect_to @atm_machine, notice: 'Atm machine was successfully created.' }
         format.json { render :show, status: :created, location: @atm_machine }
       else
